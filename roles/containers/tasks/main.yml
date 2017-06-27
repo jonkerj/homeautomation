@@ -1,5 +1,6 @@
 ---
 - name: Create or set DNS record
+  become: false
   pdnsapi_record:
     state: present
     name: "{{ inventory_hostname_short }}"
@@ -9,3 +10,27 @@
     api: "{{ pdns_api_endpoint }}"
     token: "{{ pdns_api_token }}"
   delegate_to: "{{ pdns_client_fqdn }}"
+- name: Create LXC container
+  delegate_to: "{{ container_host }}"
+  become: false
+  lxc_container:
+    template: download
+    template_options: --dist ubuntu --release zesty --arch amd64
+    name: "{{ inventory_hostname_short }}"
+    state: started
+    container_command: |
+      usermod -l jorik -d /home/jorik -m -c 'Jorik Jonker' ubuntu
+      groupmod -n jorik ubuntu
+      passwd -d jorik
+      mkdir /home/jorik/.ssh
+      echo {{ jorik_ssh_pubkey }} > /home/jorik/.ssh/authorized_keys
+      chmod 0600 /home/jorik/.ssh/authorized_keys
+      chmod 0755 /home/jorik/.ssh
+      chown -R jorik:jorik /home/jorik
+      echo -e "auto eth0\niface eth0 inet static\n\taddress {{ ipv4_address }}\n\tnetmask 24\n\tgateway 172.21.45.1\n\tdns-nameservers 87.249.121.121 77.222.77.222" > /etc/network/interfaces.d/eth0.cfg
+      sed -i '/eth0/s/^/#/' /etc/network/interfaces
+      echo "source /etc/network/interfaces.d/*.cfg" >> /etc/network/interfaces
+      ifdown eth0
+      ifup eth0
+      apt-get update
+      apt-get install -y openssh-server
