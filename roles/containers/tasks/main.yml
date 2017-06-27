@@ -1,0 +1,11 @@
+---
+- name: Create or set DNS record
+  pdnsapi_record:
+    state: present
+    name: "{{ inventory_hostname_short }}"
+    type: A
+    zone: "{{ dns_zone }}"
+    content: "{{ ipv4_address }}"
+    api: "{{ pdns_api_endpoint }}"
+    token: "{{ pdns_api_token }}"
+  delegate_to: "{{ pdns_client_fqdn }}"

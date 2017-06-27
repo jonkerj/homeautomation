@@ -1,0 +1,6 @@
+---
+ipv4_address: 172.21.42.16
+ipv6_address: 2001:1540:802:4:20:34ff:fe00:0
+sunxi_dt: sun8i-h3-orangepi-pc
+sunxi_uboot_blkdev: mmcblk2
+sunxi_mmc: 0

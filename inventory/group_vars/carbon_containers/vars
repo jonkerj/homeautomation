@@ -1,0 +1,3 @@
+---
+container_host: localhost
+dns_zone: lab.efgh.nl.

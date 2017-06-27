@@ -1,0 +1,21 @@
+---
+- name: apply Sunxi to Sunxi hosts
+  hosts: thuis_sunxi
+  become: yes
+  gather_facts: False
+  roles:
+  - sunxi
+
+- name: configure icinga2
+  hosts: thuis
+  become: yes
+  gather_facts: False
+  roles:
+  - icinga2
+
+- name: setup containers
+  hosts: container_hosts
+  become: yes
+  gather_facts: False
+  roles:
+  - containers

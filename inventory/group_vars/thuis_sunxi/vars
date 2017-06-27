@@ -1,0 +1,5 @@
+---
+sunxi_reboot_gpio: 110
+sunxi_src: 172.21.43.2:/media/sunxi
+sunxi_mountpoint: /media/sunxi
+sunxi_otherhost_tty: ttyS3
