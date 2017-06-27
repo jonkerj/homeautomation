@@ -5,9 +5,8 @@
   - monitoring-plugins
   - icinga2
 - name: enable API
-  icinga2_feature:
-    name: api
-    state: present
+  command: >
+    {{ icinga2_binary }} feature enable api
 - name: enable commands
   template:
     src: features-api.conf
