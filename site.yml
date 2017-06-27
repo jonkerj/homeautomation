@@ -14,7 +14,7 @@
   - icinga2
 
 - name: setup containers
-  hosts: container_hosts
+  hosts: containers
   become: yes
   gather_facts: False
   roles:
