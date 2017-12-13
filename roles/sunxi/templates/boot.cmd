@@ -6,7 +6,7 @@ setenv vars boot.txt
 # this may be overridden in boot.txt
 setenv bootdevtype mmc
 setenv prefix /boot
-setenv bootdev 1
+setenv bootdev {{ sunxi_mmc }}
 setenv bootpart 1
 
 echo "Loading variables (${prefix}/${vars})"
