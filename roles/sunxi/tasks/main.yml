@@ -17,7 +17,9 @@
       filename: jorik-kippendief-dtc
       state: present
   - name: Install packages
-    apt: name={{ item }} state=present
+    package:
+      name: "{{ item }}"
+      state: latest
     with_items:
       - ser2net
       - u-boot-tools
