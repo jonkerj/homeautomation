@@ -11,17 +11,13 @@
       fstype: nfs
       opts: defaults,local_lock=all
       state: mounted
-  - name: Put import.sh in the right place
-    template:
-      src: sunxi-import.sh
-      dest: /usr/local/bin/sunxi-import.sh
-      mode: 0755
   - name: Install packages
     apt: name={{ item }} state=present
     with_items:
       - ser2net
       - u-boot-tools
       - sysfsutils
+      - make
   - name: Userspace U-Boot environment config
     template:
       src: fw_env.config
@@ -32,16 +28,32 @@
       dest: /etc/ser2net.conf
     notify:
     - restart ser2net
+  - name: Install Makefile for U-boot scripts
+    copy:
+      src: Makefile
+      dest: /boot/Makefile
+    notify:
+    - recompile uboot scripts
   - name: Install U-boot scripts
     template:
       src: "{{ item }}.cmd"
       dest: "/boot/{{ item }}.cmd"
     with_items:
       - boot
-      - patch
     register: scripts
     notify:
-    - recompile uboot script
+    - recompile uboot scripts
+  - name: Install U-boot boot.txt
+    template:
+      src: boot.txt
+      dest: "/boot/boot.txt"
+  - name: Install FDT overlays
+    copy:
+      src: "{{ item }}.dtso"
+      dest: /boot/{{ item }}.dtso
+    with_items: "{{ sunxi_overlays }}"
+    notify:
+    - recompile uboot scripts
   - name: Prepare GPIO for rebooting
     template:
       src: sunxi-reboot-other.conf
