@@ -6,3 +6,4 @@ sunxi_otherhost_tty: ttyS3
 sunxi_root_part: 1
 sunxi_overlays:
 - uarts
+- i2cs
