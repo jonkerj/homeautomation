@@ -11,6 +11,11 @@
       fstype: nfs
       opts: defaults,local_lock=all
       state: mounted
+  - name: Add dtc repository
+    apt_repository:
+      repo: ppa:jorik-kippendief/dtc
+      filename: jorik-kippendief-dtc
+      state: present
   - name: Install packages
     apt: name={{ item }} state=present
     with_items:
@@ -18,6 +23,7 @@
       - u-boot-tools
       - sysfsutils
       - make
+      - device-tree-compiler
   - name: Userspace U-Boot environment config
     template:
       src: fw_env.config
