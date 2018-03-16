@@ -4,5 +4,7 @@
   become: yes
   gather_facts: False
   roles:
-  - { role: sunxi, tags: ['sunxi'] }
+  - sunxi
+  tags:
+  - sunxi
 ...
