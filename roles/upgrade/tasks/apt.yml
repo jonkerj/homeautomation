@@ -1,0 +1,11 @@
+---
+- name: Update Apt cache and upgrade packages
+  apt:
+    update_cache: yes
+    upgrade: dist
+    cache_valid_time: 3600
+
+- name: Clean package cache
+  apt:
+    autoclean: yes
+...

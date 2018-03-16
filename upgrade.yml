@@ -1,0 +1,10 @@
+---
+- name: Upgrade packages
+  hosts: thuis
+  become: yes
+  gather_facts: False
+  roles:
+  - upgrade
+  tags:
+  - upgrade
+...
