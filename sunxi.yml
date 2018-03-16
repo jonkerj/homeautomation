@@ -1,10 +1,21 @@
 ---
-- name: apply Sunxi to Sunxi hosts
+- name: Apply sunxi boot
   hosts: thuis_sunxi
   become: yes
   gather_facts: False
   roles:
-  - sunxi
+  - sunxi-boot
   tags:
   - sunxi
+  - boot
+
+- name: Apply devboard config
+  hosts: thuis_sunxi_dev
+  become: yes
+  gather_facts: False
+  roles:
+  - sunxi-dev
+  tags:
+  - sunxi
+  - dev
 ...

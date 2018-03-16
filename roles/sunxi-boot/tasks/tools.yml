@@ -9,19 +9,11 @@
     name: "{{ item }}"
     state: latest
   with_items:
-    - ser2net
     - u-boot-tools
-    - sysfsutils
     - make
     - device-tree-compiler
 - name: Userspace U-Boot environment config
   template:
     src: fw_env.config
     dest: /etc/fw_env.config
-- name: ser2net configfile
-  template:
-    src: ser2net.conf
-    dest: /etc/ser2net.conf
-  notify:
-  - restart ser2net
 ...
