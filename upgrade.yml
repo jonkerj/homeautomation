@@ -1,6 +1,6 @@
 ---
 - name: Upgrade packages
-  hosts: thuis
+  hosts: all
   become: yes
   gather_facts: False
   roles:
