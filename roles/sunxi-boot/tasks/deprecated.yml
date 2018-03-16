@@ -9,4 +9,20 @@
   file:
     path: "{{ sunxi_mountpoint }}"
     state: absent
+- name: Remove unneeded packages
+  package:
+    name: "{{ item }}"
+    state: absent
+  with_items:
+  - ser2net
+  - sysfsutils
+- name: Remove devboard stuff from hosts outside devsetup
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+  - "/etc/ser2net.conf"
+  - "/usr/local/sbin/sunxi-reboot-other.sh"
+  - "/etc/sysfs.d/sunxi-reboot-other.conf"
+  when: "'sunxi_thuis_dev' not in group_names"
 ...
