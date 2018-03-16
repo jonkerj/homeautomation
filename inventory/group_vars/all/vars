@@ -1,4 +1,2 @@
 ---
 jorik_ssh_pubkey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCUBx6AbKzsV/gc2q/F9c7yrvb12tnC9xQ1ugp+9cTGCrt0YEM+DYBfcRXE8964Tk47Dj4qTQeHpCJCe8IaFkellX6NAiiUx2esE9noJJjh6X+D30DRN9gwt0fUMH1ig6X3zE5fISqxLv1kEbaa33E4e28LH7Uz5cjAPRmfHqmF5ghfWDNPi/iSkD+N0quG69PH7XL9WjegGDaJPxnao2bNMozQeer9c/oAQElZOz4MDR3YjpFWwIiMgaOL/y0hIf4JjDkwOlY1uYGlt4AL11N9/3+TqWsoyhbyJ7BLBkDB8rKKcdkGf68+oawcStyWYRaz+t6+atFUeMaiPiyFwjfZ jorik@carbon"
-pdns_client_fqdn: localhost
-pdns_api_endpoint: http://localhost:8081

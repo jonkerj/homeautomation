@@ -1,5 +1,4 @@
 ---
 - import_playbook: sunxi.yml
 - import_playbook: icinga2.yml
-- import_playbook: containers.yml
 ...
