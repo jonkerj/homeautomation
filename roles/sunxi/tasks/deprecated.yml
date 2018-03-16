@@ -1,0 +1,12 @@
+---
+- name: Remove Carbon/sunxi from fstab
+  mount:
+    name: "{{ sunxi_mountpoint }}"
+    src: "{{ sunxi_src }}"
+    fstype: nfs
+    state: absent
+- name: Remove deprecated mountpoint
+  file:
+    path: "{{ sunxi_mountpoint }}"
+    state: absent
+...

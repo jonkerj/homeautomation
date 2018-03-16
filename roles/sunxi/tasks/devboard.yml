@@ -1,0 +1,13 @@
+---
+- name: Prepare GPIO for rebooting
+  template:
+    src: sunxi-reboot-other.conf
+    dest: /etc/sysfs.d/sunxi-reboot-other.conf
+  notify:
+  - restart sysfsutils
+- name: Reboot script
+  template:
+    src: sunxi-reboot-other.sh
+    dest: /usr/local/sbin/sunxi-reboot-other.sh
+    mode: 0755
+...
