@@ -5,3 +5,4 @@
   command: /usr/bin/make chdir=/boot/
 - name: restart sysfsutils
   service: name=sysfsutils state=restarted
+...

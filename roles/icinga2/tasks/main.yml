@@ -15,7 +15,7 @@
   - restart icinga2
 - name: Get PKI ticket
   command: >
-    {{ icinga2_binary }} pki ticket 
+    {{ icinga2_binary }} pki ticket
     --cn {{ inventory_hostname }}
   register: ticket
   delegate_to: "{{ icinga2_master_fqdn }}"
@@ -28,15 +28,15 @@
     group: nagios
 - name: Create temporary self-signed certificate
   command: >
-    {{ icinga2_binary }} pki new-cert 
-    --cn {{ inventory_hostname }} 
+    {{ icinga2_binary }} pki new-cert
+    --cn {{ inventory_hostname }}
     --key /etc/icinga2/pki/{{ inventory_hostname }}.key
     --cert  /etc/icinga2/pki/{{ inventory_hostname }}.crt
   args:
     creates: /etc/icinga2/pki/{{ inventory_hostname }}.crt
 - name: Save trusted master certificate
   command: >
-    {{ icinga2_binary }} pki save-cert 
+    {{ icinga2_binary }} pki save-cert
     --host {{ icinga2_master_fqdn }}
     --trustedcert  /etc/icinga2/pki/trusted-master.crt
   args:
@@ -81,3 +81,4 @@
   delegate_to: "{{ icinga2_master_fqdn }}"
   notify:
   - restart icinga2
+...
