@@ -1,0 +1,8 @@
+---
+- name: apply Sunxi to Sunxi hosts
+  hosts: thuis_sunxi
+  become: yes
+  gather_facts: False
+  roles:
+  - { role: sunxi, tags: ['sunxi'] }
+...

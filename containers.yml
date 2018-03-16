@@ -1,0 +1,8 @@
+---
+- name: setup containers
+  hosts: containers
+  become: yes
+  gather_facts: False
+  roles:
+  - { role: containers, tags: ['containers'] }
+...

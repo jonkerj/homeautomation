@@ -1,21 +1,5 @@
 ---
-- name: apply Sunxi to Sunxi hosts
-  hosts: thuis_sunxi
-  become: yes
-  gather_facts: False
-  roles:
-  - { role: sunxi, tags: ['sunxi'] }
-
-- name: configure icinga2
-  hosts: thuis
-  become: yes
-  gather_facts: False
-  roles:
-  - { role: icinga2, tags: ['icinga2'] }
-
-- name: setup containers
-  hosts: containers
-  become: yes
-  gather_facts: False
-  roles:
-  - { role: containers, tags: ['containers'] }
+- import_playbook: sunxi.yml
+- import_playbook: icinga2.yml
+- import_playbook: containers.yml
+...
