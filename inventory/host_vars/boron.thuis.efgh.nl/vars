@@ -5,9 +5,10 @@ sunxi_dt: sun8i-h3-orangepi-plus
 sunxi_uboot_blkdev: mmcblk2
 sunxi_root_dev: mmcblk2
 sunxi_mmc: 1
-sunxi_kernel: zImage2
-sunxi_dtb: opi.dtb2
+sunxi_kernel: zImage
+sunxi_dtb: opi.dtb
 sunxi_overlays:
 - i2cs
 - bme280
 - si7020
+- analog-codec
