@@ -16,6 +16,18 @@
   with_items:
   - ser2net
   - sysfsutils
+- name: Remove unneeded bootfiles
+  file:
+    name: "/boot/{{ item }}"
+    state: absent
+  with_items:
+  - "patch.cmd"
+  - "patch.scr"
+  - "scripts.results.scr"
+  - "uboot_scripts.results.scr"
+  - "u-boot-sunxi-with-spl.bin.2016.07"
+  - "zImage2"
+  - "opi.dtb2"
 - name: Remove devboard stuff from hosts outside devsetup
   file:
     path: "{{ item }}"
