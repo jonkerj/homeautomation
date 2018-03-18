@@ -4,5 +4,5 @@ ipv6_address: 2001:1540:802:4:20:40ff:fe00:6d
 sunxi_uboot_blkdev: mmcblk2
 sunxi_root_dev: mmcblk2
 sunxi_mmc: 1
-sunxi_otherhost_tty: ttyS2
 sunxi_dtb: sun8i-h3-orangepi-plus
+...

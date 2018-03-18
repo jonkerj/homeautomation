@@ -6,3 +6,4 @@ sunxi_overlays:
 sunxi_kernel_pkg_path: /media/sunxi
 sunxi_kernel_version: 4.16.0-rc2-148915-gf42d7ecff01d
 sunxi_kernel_version_suffix: 8
+...

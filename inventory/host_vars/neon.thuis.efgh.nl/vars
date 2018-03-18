@@ -5,3 +5,4 @@ additional_disks:
 - path: /home
   critical: 10%
   warning: 20%
+...

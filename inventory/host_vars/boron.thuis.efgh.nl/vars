@@ -10,3 +10,4 @@ sunxi_overlays:
 - bme280
 - si7020
 - analog-codec
+...
