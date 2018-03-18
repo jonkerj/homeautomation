@@ -1,8 +1,4 @@
 ---
-sunxi_reboot_gpio: 110
-sunxi_src: 172.21.43.2:/media/sunxi
-sunxi_mountpoint: /media/sunxi
-sunxi_otherhost_tty: ttyS3
 sunxi_root_part: 1
 sunxi_overlays:
 - uarts
