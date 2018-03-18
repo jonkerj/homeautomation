@@ -1,0 +1,25 @@
+---
+- name: Copy kernel
+  copy:
+    src: '{{ sunxi_kernel_pkg_path }}/linux-image-{{ sunxi_kernel_version }}_{{ sunxi_kernel_version }}-{{ sunxi_kernel_version_suffix }}_armhf.deb'
+    dest: '/tmp/linux-image-{{ sunxi_kernel_version }}_{{ sunxi_kernel_version }}-{{ sunxi_kernel_version_suffix }}_armhf.deb'
+
+- name: Install kernel
+  apt:
+    deb: '/tmp/linux-image-{{ sunxi_kernel_version }}_{{ sunxi_kernel_version }}-{{ sunxi_kernel_version_suffix }}_armhf.deb'
+    state: present
+
+- name: Update zImage
+  file:
+    src: '/boot/vmlinuz-{{ sunxi_kernel_version }}'
+    dest: '/boot/zImage'
+    state: link
+    force: yes
+
+- name: Update dtb
+  file:
+    src: '/usr/lib/linux-image-{{ sunxi_kernel_version }}/{{ sunxi_dtb }}.dtb'
+    dest: '/boot/dtb'
+    state: link
+    force: yes
+...
