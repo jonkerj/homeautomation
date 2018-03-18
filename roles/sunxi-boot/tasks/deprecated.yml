@@ -14,8 +14,7 @@
     name: "{{ item }}"
     state: absent
   with_items:
-  - ser2net
-  - sysfsutils
+  - puppet
 - name: Remove unneeded bootfiles
   file:
     name: "/boot/{{ item }}"
