@@ -1,6 +1,6 @@
 setenv kernel_addr 0x46000000
-setenv fdt_addr 0x49000000
-setenv scratch_addr 0x43200000
+setenv fdt_addr 0x48000000
+setenv scratch_addr 0x48800000
 setenv vars boot.txt
 
 # this may be overridden in boot.txt
@@ -17,7 +17,7 @@ echo "Loading kernel (${prefix}/${kernel})"
 ext4load ${bootdevtype} ${bootdev} ${kernel_addr} ${prefix}/${kernel}
 echo "Loading FDT (${prefix}/${dtb})"
 ext4load ${bootdevtype} ${bootdev} ${fdt_addr} ${prefix}/${dtb}
-fdt addr 0x49000000
+fdt addr ${fdt_addr}
 fdt resize 65536
 
 for overlay_name in ${overlays}; do
