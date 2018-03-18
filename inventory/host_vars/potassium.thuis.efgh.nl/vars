@@ -5,5 +5,5 @@ sunxi_dt: sun8i-h3-orangepi-one
 sunxi_uboot_blkdev: mmcblk0
 sunxi_root_dev: mmcblk0
 sunxi_mmc: 0
-sunxi_kernel: zImage2
-sunxi_dtb: opi.dtb2
+sunxi_kernel: zImage
+sunxi_dtb: opi.dtb
