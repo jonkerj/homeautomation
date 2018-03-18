@@ -28,13 +28,4 @@
   - "u-boot-sunxi-with-spl.bin.2016.07"
   - "zImage2"
   - "opi.dtb2"
-- name: Remove devboard stuff from hosts outside devsetup
-  file:
-    path: "{{ item }}"
-    state: absent
-  with_items:
-  - "/etc/ser2net.conf"
-  - "/usr/local/sbin/sunxi-reboot-other.sh"
-  - "/etc/sysfs.d/sunxi-reboot-other.conf"
-  when: "'sunxi_thuis_dev' not in group_names"
 ...
