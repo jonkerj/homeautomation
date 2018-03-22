@@ -1,0 +1,15 @@
+---
+- name: checkout git
+  git:
+    repo: '{{ sunxi_uboot_git_repo }}'
+    dest: '{{ sunxi_uboot_compile_dir }}'
+    version: '{{ sunxi_uboot_git_version }}'
+
+- name: make
+  make:
+    chdir: '{{ sunxi_uboot_compile_dir }}'
+    target: '{{ item }}'
+  with_items:
+  - '{{ sunxi_uboot_defconfig }}'
+  - u-boot-sunxi-with-spl.bin
+...

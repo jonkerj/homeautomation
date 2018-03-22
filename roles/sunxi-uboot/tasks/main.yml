@@ -1,0 +1,9 @@
+---
+- include_tasks: version.yml
+- include_tasks: compile.yml
+  when: uboot_version_short != sunxi_uboot_version
+  delegate_to: localhost
+  become: no
+- include_tasks: deploy.yml
+  when: uboot_version_short != sunxi_uboot_version
+...

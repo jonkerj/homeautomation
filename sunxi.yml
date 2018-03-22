@@ -1,4 +1,14 @@
 ---
+- name: Deploy u-boot
+  hosts: thuis_sunxi
+  become: yes
+  gather_facts: False
+  roles:
+  - sunxi-uboot
+  tags:
+  - sunxi
+  - uboot
+
 - name: Apply sunxi boot
   hosts: thuis_sunxi
   become: yes

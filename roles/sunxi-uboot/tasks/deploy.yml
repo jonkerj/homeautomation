@@ -1,0 +1,9 @@
+---
+- name: transfer u-boot
+  copy:
+    src: '{{ sunxi_uboot_compile_dir }}/u-boot-sunxi-with-spl.bin'
+    dest: '/tmp/uboot.bin'
+
+- name: install u-boot
+  command: /bin/dd if=/tmp/uboot.bin of=/dev/{{ sunxi_uboot_blkdev }} bs=1k seek=8
+...

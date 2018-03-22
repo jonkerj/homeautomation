@@ -10,4 +10,5 @@ sunxi_overlays:
 - bme280
 - si7020
 - analog-codec
+sunxi_uboot_defconfig: orangepi_plus_defconfig
 ...
