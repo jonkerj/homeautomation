@@ -1,6 +1,6 @@
 ---
 - name: Deploy u-boot
-  hosts: thuis_sunxi
+  hosts: sunxi
   become: yes
   gather_facts: False
   roles:
@@ -10,7 +10,7 @@
   - uboot
 
 - name: Apply sunxi boot
-  hosts: thuis_sunxi
+  hosts: sunxi
   become: yes
   gather_facts: False
   roles:
@@ -20,7 +20,7 @@
   - boot
 
 - name: Apply devboard config
-  hosts: thuis_sunxi_dev
+  hosts: devboard
   become: yes
   gather_facts: False
   roles:
