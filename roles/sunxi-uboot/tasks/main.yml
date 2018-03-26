@@ -1,9 +1,12 @@
 ---
-- include_tasks: facts.yml
-- include_tasks: compile.yml
+- name: Facts
+  include_tasks: facts.yml
+- name: Compile
+  include_tasks: compile.yml
   when: uboot_version_short != sunxi_uboot_version
   delegate_to: localhost
   become: no
-- include_tasks: deploy.yml
+- name: Deploy
+  include_tasks: deploy.yml
   when: uboot_version_short != sunxi_uboot_version
 ...
