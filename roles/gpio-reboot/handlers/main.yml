@@ -1,0 +1,4 @@
+---
+- name: restart sysfsutils
+  service: name=sysfsutils state=restarted
+...

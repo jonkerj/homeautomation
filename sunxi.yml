@@ -24,7 +24,8 @@
   become: yes
   gather_facts: False
   roles:
-  - sunxi-dev
+  - ser2net
+  - gpio-reboot
   tags:
   - sunxi
   - dev

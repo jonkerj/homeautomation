@@ -4,14 +4,7 @@
     name: "{{ item }}"
     state: latest
   with_items:
-  - ser2net
   - sysfsutils
-- name: ser2net configfile
-  template:
-    src: ser2net.conf
-    dest: /etc/ser2net.conf
-  notify:
-  - restart ser2net
 - name: Prepare GPIO for rebooting
   template:
     src: sunxi-reboot-other.conf
