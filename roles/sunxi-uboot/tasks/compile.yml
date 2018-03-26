@@ -5,11 +5,17 @@
     dest: '{{ sunxi_uboot_compile_dir }}'
     version: '{{ sunxi_uboot_git_version }}'
 
-- name: make
+- name: make (32-bit)
+  environment:
+    ARCH: arm
+    CROSS_COMPILE: arm-linux-gnueabihf-
   make:
     chdir: '{{ sunxi_uboot_compile_dir }}'
     target: '{{ item }}'
   with_items:
   - '{{ sunxi_uboot_defconfig }}'
   - u-boot-sunxi-with-spl.bin
+  when:
+  - platform_machine == "armv7l"
+  - platform_bits == 32
 ...

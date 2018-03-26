@@ -1,0 +1,9 @@
+---
+- name: Get platform facts
+  platform_facts:
+
+- name: Get current u-boot version
+  uboot_version:
+    filename: '/dev/{{ sunxi_uboot_blkdev }}'
+    offset: '{{ sunxi_uboot_offset }}'
+...
