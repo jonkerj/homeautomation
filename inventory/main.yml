@@ -8,6 +8,7 @@ all:
         oxygen.thuis.efgh.nl:
         potassium.thuis.efgh.nl:
         boron.thuis.efgh.nl:
+        vanadium.thuis.efgh.nl:
     thuis:
       children:
         sunxi:
