@@ -1,0 +1,10 @@
+---
+- name: Set apt.conf
+  hosts: all
+  become: yes
+  gather_facts: False
+  roles:
+  - aptconf
+  tags:
+  - defaults
+...

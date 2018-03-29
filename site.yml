@@ -1,4 +1,5 @@
 ---
+- import_playbook: defaults.yml
 - import_playbook: upgrade.yml
 - import_playbook: sunxi.yml
 - import_playbook: icinga2.yml

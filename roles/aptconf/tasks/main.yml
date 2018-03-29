@@ -1,0 +1,6 @@
+---
+- name: Prevent suggests and recommends
+  copy:
+    src: 99norecommends
+    dest: /etc/apt/apt.conf.d/99norecommends
+...
