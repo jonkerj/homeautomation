@@ -1,0 +1,7 @@
+---
+- name: Make sure Jorik's key is present
+  authorized_key:
+    user: jorik
+    key: '{{ jorik_ssh_pubkey }}'
+    state: present
+...

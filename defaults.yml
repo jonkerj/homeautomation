@@ -6,6 +6,7 @@
   roles:
   - aptconf
   - aptsources
+  - sshkeys
   tags:
   - defaults
 ...
