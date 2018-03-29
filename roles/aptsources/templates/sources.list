@@ -1,0 +1,13 @@
+# {{ ansible_managed }}
+deb {{ aptsources_main_mirror }} artful main restricted universe multiverse
+deb {{ aptsources_main_mirror }} artful-backports main restricted universe multiverse
+deb {{ aptsources_main_mirror }} artful-updates main restricted universe multiverse
+deb {{ aptsources_security_mirror }} artful-security main restricted universe multiverse
+deb {{ aptsources_partner_mirror }} artful partner
+{% if aptsources_include_src %}
+deb-src {{ aptsources_main_mirror }} artful main restricted universe multiverse
+deb-src {{ aptsources_main_mirror }} artful-backports main restricted universe multiverse
+deb-src {{ aptsources_main_mirror }} artful-updates main restricted universe multiverse
+deb-src {{ aptsources_security_mirror }} artful-security main restricted universe multiverse
+deb-src {{ aptsources_partner_mirror }} artful partner
+{% endif %}

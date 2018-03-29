@@ -1,0 +1,6 @@
+---
+- name: Setup main sources.list
+  template:
+    src: sources.list
+    dest: /etc/apt/sources.list
+...

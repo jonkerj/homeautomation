@@ -5,6 +5,7 @@
   gather_facts: False
   roles:
   - aptconf
+  - aptsources
   tags:
   - defaults
 ...
