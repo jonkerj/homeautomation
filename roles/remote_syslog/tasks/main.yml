@@ -1,0 +1,12 @@
+---
+- name: Install rsyslog
+  package:
+    name: rsyslog
+    state: latest
+
+- name: Install remote syslog configuration
+  template:
+    src: remote.conf
+    dest: /etc/rsyslog.d/90remote.conf
+  notify: restart rsyslogd
+...
