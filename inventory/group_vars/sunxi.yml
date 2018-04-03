@@ -4,8 +4,6 @@ sunxi_overlays:
 - uarts
 - i2cs
 sunxi_kernel_pkg_path: /media/sunxi
-sunxi_kernel_version: 4.16.0-rc2-148915-gf42d7ecff01d
-sunxi_kernel_version_suffix: 8
 sunxi_uboot_offset: 8192
 sunxi_uboot_version: "2018.03"
 sunxi_uboot_git_repo: https://github.com/jonkerj/u-boot.git

@@ -3,15 +3,15 @@ all:
     localhost:
   children:
     sunxi:
-      hosts:
-        sulfur.thuis.efgh.nl:
-        oxygen.thuis.efgh.nl:
-        potassium.thuis.efgh.nl:
-        boron.thuis.efgh.nl:
-        vanadium.thuis.efgh.nl:
+      children:
+        sunxi_armhf:
+        sunxi_aarch64:
     thuis:
       children:
         sunxi:
+          children:
+            sunxi_armhf:
+            sunxi_aarch64:
       hosts:
         neon.thuis.efgh.nl:
     devboard:
@@ -19,3 +19,12 @@ all:
         sulfur.thuis.efgh.nl:
         oxygen.thuis.efgh.nl:
         potassium.thuis.efgh.nl:
+    sunxi_armhf:
+      hosts:
+        sulfur.thuis.efgh.nl:
+        oxygen.thuis.efgh.nl:
+        potassium.thuis.efgh.nl:
+        boron.thuis.efgh.nl:
+    sunxi_aarch64:
+      hosts:
+        vanadium.thuis.efgh.nl:
