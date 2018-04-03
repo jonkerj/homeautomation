@@ -1,6 +1,4 @@
 ---
-- name: Facts
-  include_tasks: facts.yml
 - name: Compile
   include_tasks: compile.yml
   when: uboot_version_short != sunxi_uboot_version

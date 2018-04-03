@@ -1,4 +1,13 @@
 ---
+- name: Gather sunxi facts
+  hosts: sunxi
+  become: yes
+  gather_facts: False
+  roles:
+  - sunxi-facts
+  tags:
+  - always
+
 - name: Deploy u-boot
   hosts: sunxi
   become: yes
