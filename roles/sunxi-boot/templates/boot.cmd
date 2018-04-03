@@ -1,5 +1,3 @@
-setenv kernel_addr 0x46000000
-setenv fdt_addr 0x48000000
 setenv scratch_addr 0x48800000
 setenv vars boot.txt
 
@@ -14,10 +12,10 @@ load ${bootdevtype} ${bootdev}:${bootpart} ${scratch_addr} ${prefix}/${vars}
 env import -t ${scratch_addr} ${filesize}
 
 echo "Loading kernel (${prefix}/${kernel})"
-ext4load ${bootdevtype} ${bootdev} ${kernel_addr} ${prefix}/${kernel}
+ext4load ${bootdevtype} ${bootdev} ${kernel_addr_r} ${prefix}/${kernel}
 echo "Loading FDT (${prefix}/${dtb})"
-ext4load ${bootdevtype} ${bootdev} ${fdt_addr} ${prefix}/${dtb}
-fdt addr ${fdt_addr}
+ext4load ${bootdevtype} ${bootdev} ${fdt_addr_r} ${prefix}/${dtb}
+fdt addr ${fdt_addr_r}
 fdt resize 65536
 
 for overlay_name in ${overlays}; do
@@ -28,4 +26,4 @@ done
 
 echo "Booting in 5 seconds"
 sleep 5
-bootz ${kernel_addr} - ${fdt_addr}
+{{ sunxi_bootcmd }} ${kernel_addr_r} - ${fdt_addr_r}

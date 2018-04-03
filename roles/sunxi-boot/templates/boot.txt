@@ -3,6 +3,6 @@ bootdevtype=mmc
 bootdev={{ sunxi_mmc }}
 bootpart={{ sunxi_root_part }}
 prefix=/boot
-kernel=zImage
+kernel={{ sunxi_kernel }}
 dtb=dtb
 overlays={{ sunxi_overlays | join(" ") }}
