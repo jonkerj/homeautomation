@@ -1,8 +1,6 @@
 ---
 - name: Tools
   include_tasks: tools.yml
-- name: Kernel
-  include_tasks: kernel.yml
 - name: U-boot configuration
   include_tasks: uboot.yml
 ...

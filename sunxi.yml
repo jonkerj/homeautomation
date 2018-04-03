@@ -9,7 +9,17 @@
   - sunxi
   - uboot
 
-- name: Apply sunxi boot
+- name: Install sunxi kernel
+  hosts: sunxi
+  become: yes
+  gather_facts: False
+  roles:
+  - sunxi-kernel
+  tags:
+  - sunxi
+  - kernel
+
+- name: Apply sunxi boot config
   hosts: sunxi
   become: yes
   gather_facts: False
