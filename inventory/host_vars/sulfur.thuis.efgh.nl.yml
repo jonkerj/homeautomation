@@ -6,4 +6,7 @@ sunxi_root_dev: mmcblk0
 sunxi_mmc: 0
 sunxi_dtb: sun8i-h3-orangepi-pc
 sunxi_uboot_defconfig: orangepi_pc_defconfig
+sunxi_otherhost_ttys:
+- ttyS2
+- ttyUSB0
 ...

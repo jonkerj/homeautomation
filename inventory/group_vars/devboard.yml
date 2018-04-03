@@ -1,4 +1,5 @@
 ---
 sunxi_reboot_gpio: 110
-sunxi_otherhost_tty: ttyS2
+sunxi_otherhost_ttys:
+- ttyS2
 ...
