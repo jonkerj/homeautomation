@@ -1,20 +1,37 @@
 ---
 - name: Copy kernel
   copy:
-    src: '{{ sunxi_kernel_pkg_path }}/linux-image-{{ sunxi_kernel_version }}_{{ sunxi_kernel_version }}-{{ sunxi_kernel_version_suffix }}_armhf.deb'
-    dest: '/tmp/linux-image-{{ sunxi_kernel_version }}_{{ sunxi_kernel_version }}-{{ sunxi_kernel_version_suffix }}_armhf.deb'
+    src: '{{ sunxi_kernel_pkg_path }}/linux-image-{{ sunxi_kernel_version }}_{{ sunxi_kernel_version }}-{{ sunxi_kernel_version_suffix }}_{{ debian_arch }}.deb'
+    dest: '/tmp/linux-image-{{ sunxi_kernel_version }}_{{ sunxi_kernel_version }}-{{ sunxi_kernel_version_suffix }}_{{ debian_arch }}.deb'
 
 - name: Install kernel
   apt:
-    deb: '/tmp/linux-image-{{ sunxi_kernel_version }}_{{ sunxi_kernel_version }}-{{ sunxi_kernel_version_suffix }}_armhf.deb'
+    deb: '/tmp/linux-image-{{ sunxi_kernel_version }}_{{ sunxi_kernel_version }}-{{ sunxi_kernel_version_suffix }}_{{ debian_arch }}.deb'
     state: present
 
-- name: Update zImage
+- name: Unzip kernel
+  shell: gunzip < /boot/vmlinuz-{{ sunxi_kernel_version }} > /boot/Image-{{ sunxi_kernel_version }}
+  when:
+  - platform_machine == "aarch64"
+
+- name: Update zImage symlink
   file:
     src: '/boot/vmlinuz-{{ sunxi_kernel_version }}'
     dest: '/boot/zImage'
     state: link
     force: yes
+  when:
+  - platform_machine == "armv7l"
+  - platform_bits == 32
+
+- name: Update Image symlink
+  file:
+    src: '/boot/Image-{{ sunxi_kernel_version }}'
+    dest: '/boot/Image'
+    state: link
+    force: yes
+  when:
+  - platform_machine == "aarch64"
 
 - name: Update dtb
   file:
