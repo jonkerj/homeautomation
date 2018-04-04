@@ -9,6 +9,6 @@ sunxi_overlays:
 - h3-i2cs
 - h3-bme280
 - h3-si7020
-- h3-analog-codec
+- h3-h5-analog-codec
 sunxi_uboot_defconfig: orangepi_plus_defconfig
 ...
