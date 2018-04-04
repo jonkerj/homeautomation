@@ -7,7 +7,8 @@
   - aptconf
   - aptsources
   - sshkeys
-  - remote_syslog
+  - role: remote_syslog
+    when: inventory_hostname != 'localhost'
   tags:
   - defaults
 ...
