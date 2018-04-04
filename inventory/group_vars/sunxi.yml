@@ -1,8 +1,8 @@
 ---
 sunxi_root_part: 1
 sunxi_overlays:
-- uarts
-- i2cs
+- h3-uarts
+- h3-i2cs
 sunxi_kernel_pkg_path: /media/sunxi
 sunxi_uboot_offset: 8192
 sunxi_uboot_version: "2018.03"

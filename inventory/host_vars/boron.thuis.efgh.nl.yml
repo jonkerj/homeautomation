@@ -6,9 +6,9 @@ sunxi_root_dev: mmcblk2
 sunxi_mmc: 1
 sunxi_dtb: sun8i-h3-orangepi-plus
 sunxi_overlays:
-- i2cs
-- bme280
-- si7020
-- analog-codec
+- h3-i2cs
+- h3-bme280
+- h3-si7020
+- h3-analog-codec
 sunxi_uboot_defconfig: orangepi_plus_defconfig
 ...

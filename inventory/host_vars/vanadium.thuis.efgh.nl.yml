@@ -6,7 +6,7 @@ sunxi_root_dev: mmcblk2
 sunxi_mmc: 1
 sunxi_dtb: allwinner/sun50i-h5-orangepi-zero-plus2
 sunxi_overlays:
-- usbhost2
-- usbhost3
+- h5-usbhost2
+- h5-usbhost3
 sunxi_uboot_defconfig: orangepi_zero_plus2_defconfig
 ...
