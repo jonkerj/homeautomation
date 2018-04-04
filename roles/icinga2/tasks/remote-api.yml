@@ -1,0 +1,60 @@
+---
+- name: enable API
+  command: >
+    {{ icinga2_binary }} feature enable api
+- name: enable commands
+  template:
+    src: features-api.conf
+    dest: /etc/icinga2/features-available/api.conf
+  notify:
+  - restart icinga2
+- name: Get PKI ticket
+  command: >
+    {{ icinga2_binary }} pki ticket
+    --cn {{ inventory_hostname }}
+  register: ticket
+  delegate_to: "{{ icinga2_master_fqdn }}"
+- name: Create PKI folder
+  file:
+    path: /etc/icinga2/pki
+    state: directory
+    mode: 0751
+    owner: nagios
+    group: nagios
+- name: Create temporary self-signed certificate
+  command: >
+    {{ icinga2_binary }} pki new-cert
+    --cn {{ inventory_hostname }}
+    --key /etc/icinga2/pki/{{ inventory_hostname }}.key
+    --cert  /etc/icinga2/pki/{{ inventory_hostname }}.crt
+  args:
+    creates: /etc/icinga2/pki/{{ inventory_hostname }}.crt
+- name: Save trusted master certificate
+  command: >
+    {{ icinga2_binary }} pki save-cert
+    --host {{ icinga2_master_fqdn }}
+    --trustedcert  /etc/icinga2/pki/trusted-master.crt
+  args:
+    creates: /etc/icinga2/pki/trusted-master.crt
+- name: request signed certificate from master using ticket
+  command: >
+    {{ icinga2_binary }} pki request
+    --key /etc/icinga2/pki/{{ inventory_hostname }}.key
+    --cert /etc/icinga2/pki/{{ inventory_hostname }}.crt
+    --ca /etc/icinga2/pki/ca.crt
+    --host {{ icinga2_master_fqdn }}
+    --trustedcert  /etc/icinga2/pki/trusted-master.crt
+    --ticket {{ ticket.stdout }}
+  args:
+    creates: /etc/icinga2/pki/ca.crt
+- name: create Icinga config files on sattelite
+  template:
+    src: "{{ item }}.conf"
+    dest: "/etc/icinga2/{{ item }}.conf"
+  with_items:
+  - zones
+  - constants
+  - icinga2
+  notify:
+  - restart icinga2
+...
