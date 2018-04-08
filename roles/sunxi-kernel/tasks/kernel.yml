@@ -12,7 +12,7 @@
 - name: Unzip kernel
   shell: gunzip < /boot/vmlinuz-{{ sunxi_kernel_version }} > /boot/Image-{{ sunxi_kernel_version }}
   when:
-  - platform_machine == "aarch64"
+  - ansible_architecture == "aarch64"
 
 - name: Update zImage symlink
   file:
@@ -21,8 +21,7 @@
     state: link
     force: yes
   when:
-  - platform_machine == "armv7l"
-  - platform_bits == 32
+  - ansible_architecture == "armv7l"
 
 - name: Update Image symlink
   file:
@@ -31,7 +30,7 @@
     state: link
     force: yes
   when:
-  - platform_machine == "aarch64"
+  - ansible_architecture == "aarch64"
 
 - name: Update dtb
   file:

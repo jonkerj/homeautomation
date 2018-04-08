@@ -1,18 +1,10 @@
 ---
-- name: Gather sunxi facts
-  hosts: sunxi
-  become: yes
-  gather_facts: False
-  roles:
-  - sunxi-facts
-  tags:
-  - always
-
 - name: Deploy u-boot
   hosts: sunxi
   become: yes
-  gather_facts: False
+  gather_facts: True
   roles:
+  - uboot-version
   - sunxi-uboot
   tags:
   - sunxi
@@ -21,7 +13,7 @@
 - name: Install sunxi kernel
   hosts: sunxi
   become: yes
-  gather_facts: False
+  gather_facts: True
   roles:
   - sunxi-kernel
   tags:
