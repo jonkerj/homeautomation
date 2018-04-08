@@ -1,10 +1,6 @@
 ---
 sunxi_root_part: 1
-sunxi_overlays:
-- h3-uarts
-- h3-i2cs
 sunxi_kernel_pkg_path: /media/sunxi
-sunxi_uboot_offset: 8192
 sunxi_uboot_version: "2018.03"
 sunxi_uboot_git_repo: https://github.com/jonkerj/u-boot.git
 sunxi_uboot_git_version: "v{{ sunxi_uboot_version }}"
