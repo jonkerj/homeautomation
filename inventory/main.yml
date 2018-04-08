@@ -28,3 +28,4 @@ all:
     sunxi_aarch64:
       hosts:
         vanadium.thuis.efgh.nl:
+        chromium.thuis.efgh.nl:

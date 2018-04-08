@@ -1,0 +1,9 @@
+---
+ipv4_address: 172.21.42.24
+ipv6_address: 2001:1540:802:4:ba:61ff:fefb:2f6
+sunxi_uboot_blkdev: mmcblk0
+sunxi_root_dev: mmcblk0
+sunxi_mmc: 0
+sunxi_dtb: allwinner/sun50i-a64-pine64-plus
+sunxi_uboot_defconfig: pine64_plus_defconfig
+...
