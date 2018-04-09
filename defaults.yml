@@ -6,6 +6,7 @@
   roles:
   - aptconf
   - aptsources
+  - packages
   - sshkeys
   - role: remote_syslog
     when: inventory_hostname != 'localhost'

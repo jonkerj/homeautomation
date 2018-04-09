@@ -1,0 +1,7 @@
+---
+- name: Install basic packages
+  package:
+    name: '{{ item }}'
+    state: latest
+  with_items: '{{ default_packages }}'
+...
