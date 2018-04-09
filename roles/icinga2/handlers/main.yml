@@ -1,4 +1,7 @@
 ---
-- name: restart icinga2
+- name: restart remote icinga2
   service: name=icinga2 state=restarted
+- name: restart local icinga2
+  service: name=icinga2 state=restarted
+  delegate_to: '{{ icinga2_master_fqdn }}'
 ...
