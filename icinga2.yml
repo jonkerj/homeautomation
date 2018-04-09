@@ -2,7 +2,7 @@
 - name: configure icinga2
   hosts: thuis
   become: yes
-  gather_facts: False
+  gather_facts: True
   roles:
   - icinga2
   tags:

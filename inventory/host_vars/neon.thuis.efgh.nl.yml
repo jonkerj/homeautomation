@@ -1,6 +1,4 @@
 ---
-ipv4_address: 172.21.42.10
-ipv6_address: 2001:1540:802:4:d250:99ff:fe1f:959d
 additional_disks:
 - path: /home
   critical: 10%

@@ -1,6 +1,4 @@
 ---
-ipv4_address: 172.21.42.16
-ipv6_address: 2001:1540:802:4:20:34ff:fe00:0
 sunxi_uboot_blkdev: mmcblk0
 sunxi_root_dev: mmcblk0
 sunxi_mmc: 0
