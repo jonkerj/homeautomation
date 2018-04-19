@@ -6,7 +6,7 @@ sunxi_uboot_git_repo: https://github.com/jonkerj/u-boot.git
 sunxi_uboot_git_version: "v{{ sunxi_uboot_version }}"
 sunxi_uboot_compile_dir: /media/sunxi/ansible-uboot
 sunxi_atf_git_repo: https://github.com/apritzel/arm-trusted-firmware.git
-sunxi_atf_git_version: allwinner
+sunxi_atf_git_version: c9f55c0
 sunxi_atf_compile_dir: /media/sunxi/ansible-atf
 aptsources_main_mirror: http://nl.ports.ubuntu.com/
 aptsources_security_mirror: http://nl.ports.ubuntu.com/
