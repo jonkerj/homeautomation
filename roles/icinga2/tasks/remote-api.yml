@@ -56,5 +56,5 @@
   - constants
   - icinga2
   notify:
-  - restart icinga2
+  - restart remote icinga2
 ...
