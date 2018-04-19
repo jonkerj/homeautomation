@@ -6,5 +6,6 @@ sunxi_kernel_version_suffix: 8
 sunxi_overlays:
 - h3-uarts
 - h3-i2cs
+cross_compile_prefix: arm-linux-gnueabihf-
 debian_arch: armhf
 ...
