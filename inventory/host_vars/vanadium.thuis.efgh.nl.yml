@@ -8,5 +8,5 @@ sunxi_overlays:
 - h5-cir
 - h5-usbhost2
 - h5-usbhost3
-sunxi_uboot_defconfig: orangepi_zero_plus2_defconfig
+sunxi_uboot_boardname: orangepi_zero_plus2
 ...

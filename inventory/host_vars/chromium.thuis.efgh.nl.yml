@@ -5,5 +5,5 @@ sunxi_uboot_blkdev: mmcblk0
 sunxi_root_dev: mmcblk0
 sunxi_mmc: 0
 sunxi_dtb: allwinner/sun50i-a64-pine64-plus
-sunxi_uboot_defconfig: pine64_plus_defconfig
+sunxi_uboot_boardname: pine64_plus
 ...

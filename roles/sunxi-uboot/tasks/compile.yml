@@ -44,7 +44,7 @@
     chdir: '{{ sunxi_uboot_compile_dir }}'
     target: '{{ item }}'
   with_items:
-  - '{{ sunxi_uboot_defconfig }}'
+  - '{{ sunxi_uboot_boardname }}_defconfig'
   - u-boot-sunxi-with-spl.bin
   when:
   - ansible_architecture == "aarch64"
