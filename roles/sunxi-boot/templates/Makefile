@@ -9,4 +9,4 @@ scrs: $(patsubst %.cmd,%.scr,$(wildcard *.cmd))
 	dtc -I dts -O dtb -o $@ -b0 -@ $<
 
 %.scr: %.cmd
-	mkimage -C none -A arm -T script -d $< $@
+	mkimage -C none -A {{ sunxi_mkimage_arch }} -T script -d $< $@

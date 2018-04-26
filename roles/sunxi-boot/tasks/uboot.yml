@@ -1,6 +1,6 @@
 ---
 - name: Install Makefile for U-boot scripts
-  copy:
+  template:
     src: Makefile
     dest: /boot/Makefile
   notify:
