@@ -1,0 +1,15 @@
+# {{ ansible_managed }}
+console=both
+disp_mode=1920x1080p60
+logo=disabled
+overlay_prefix={{ armbian_overlay_prefix }}
+{% if armbian_overlays | length > 0 %}
+overlays={{ armbian_overlays | join(' ') }}
+{% endif %}
+rootdev={{ armbian_rootdev }}p{{ armbian_rootpart }}
+rootfstype=ext4
+{% if armbian_user_overlays | length > 0 %}
+user_overlays={{ armbian_user_overlays | join(' ') }}
+{% endif %}
+verbosity=1
+usbstoragequirks=0x2537:0x1066:u,0x2537:0x1068:u

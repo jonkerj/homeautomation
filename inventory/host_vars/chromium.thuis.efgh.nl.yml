@@ -1,9 +1,8 @@
 ---
+armbian_board: pine64
+armbian_overlay_prefix: sun50i-a64
+armbian_rootdev: /dev/mmcblk0
+armbian_rootpart: 1
 ipv4_address: 172.21.42.217
 ipv6_address: 2001:1540:802:4:2e0:4cff:fe53:4458
-sunxi_uboot_blkdev: mmcblk0
-sunxi_root_dev: mmcblk0
-sunxi_mmc: 0
-sunxi_dtb: allwinner/sun50i-a64-pine64-plus
-sunxi_uboot_boardname: pine64_plus
 ...

@@ -1,12 +1,11 @@
 ---
-sunxi_uboot_blkdev: mmcblk2
-sunxi_root_dev: mmcblk2
-sunxi_mmc: 1
-sunxi_dtb: sun8i-h3-orangepi-plus
-sunxi_overlays:
-- h3-i2cs
-- h3-bme280
+armbian_board: orangepiplus
+armbian_overlays:
+- i2c0
+- i2c1
+armbian_rootdev: /dev/mmcblk1
+armbian_rootpart: 1
+armbian_user_overlays:
 - h3-si7020
-- h3-h5-analog-codec
-sunxi_uboot_boardname: orangepi_plus
+- h3-bme280
 ...

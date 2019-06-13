@@ -1,9 +1,3 @@
 ---
-sunxi_bootcmd: booti
-sunxi_kernel: Image
-sunxi_kernel_version: 4.16.0-g54b6be003
-sunxi_kernel_version_suffix: 2
-sunxi_mkimage_arch: arm64
-cross_compile_prefix: aarch64-linux-gnu-
 debian_arch: arm64
 ...

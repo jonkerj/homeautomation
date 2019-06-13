@@ -1,6 +1,53 @@
 ---
-- name: Tools
-  include_tasks: tools.yml
-- name: U-boot configuration
-  include_tasks: uboot.yml
+- name: Remove dtc repository
+  apt_repository:
+    repo: ppa:jorik-kippendief/dtc
+    filename: jorik-kippendief-dtc
+    state: absent
+- name: Ensure Armbian key is there
+  apt_key:
+    url: https://apt.armbian.com/armbian.key
+    state: present
+- name: Ensure Armbian repository is present
+  apt_repository:
+    repo: 'deb http://apt.armbian.com {{ armbian_release }} main'
+    filename: armbian
+    state: present
+- name: Install packages
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - 'linux-{{ armbian_release }}-root-{{ armbian_target }}-{{ armbian_board }}'
+    - 'linux-dtb-{{ armbian_target }}-{{ armbian_family }}'
+    - 'linux-image-{{ armbian_target }}-{{ armbian_family }}'
+    - 'linux-u-boot-{{ armbian_board }}-{{ armbian_target }}'
+- name: Make sure dtc is present
+  package:
+    name: device-tree-compiler
+    state: latest
+  when: armbian_user_overlays is defined
+- name: Create overlay dir
+  file:
+    path: '/boot/overlay-user/'
+    state: directory
+  when: armbian_user_overlays is defined
+- name: Copy overlay source
+  copy:
+    src: '{{ item }}.dtso'
+    dest: '/boot/overlay-user/{{ item }}.dtso'
+  with_items: '{{ armbian_user_overlays }}'
+- name: Compile overlay
+  command: "/usr/bin/dtc -O dtb -o /boot/overlay-user/{{ item }}.dtbo -@ /boot/overlay-user/{{ item }}.dtso"
+  args:
+    creates: "/boot/overlay-user/{{ item }}.dtbo"
+  with_items: "{{ armbian_user_overlays | default([]) }}"
+- name: Template armbianEnv.txt
+  template:
+    src: armbianEnv.txt
+    dest: /boot/armbianEnv.txt
+- name: Userspace U-Boot environment config
+  template:
+    src: fw_env.config
+    dest: /etc/fw_env.config
 ...

@@ -1,9 +1,7 @@
 ---
-sunxi_uboot_blkdev: mmcblk2
-sunxi_root_dev: mmcblk2
-sunxi_mmc: 1
-sunxi_dtb: sun8i-h3-orangepi-plus
-sunxi_uboot_boardname: orangepi_plus
+armbian_board: orangepiplus
+armbian_rootdev: /dev/mmcblk1
+armbian_rootpart: 1
 sunxi_otherhost_ttys:
 - ttyS2
 - ttyUSB0

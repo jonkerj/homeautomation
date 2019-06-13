@@ -1,12 +1,11 @@
 ---
-sunxi_uboot_blkdev: mmcblk2
-sunxi_root_dev: mmcblk2
-sunxi_mmc: 1
-sunxi_dtb: allwinner/sun50i-h5-orangepi-zero-plus2
-sunxi_overlays:
-- h3-h5-analog-codec
-- h5-cir
-- h5-usbhost2
-- h5-usbhost3
-sunxi_uboot_boardname: orangepi_zero_plus2
+armbian_board: orangepizeroplus2-h5
+armbian_overlay_prefix: sun50i-h5
+armbian_overlays:
+- analog-codec
+- cir
+- usbhost2
+- usbhost3
+armbian_rootdev: /dev/mmcblk0
+armbian_rootpart: 1
 ...

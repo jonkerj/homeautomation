@@ -1,8 +1,0 @@
-bootargs=console=ttyS0,115200 root=/dev/{{ sunxi_root_dev}}p{{ sunxi_root_part }} rootwait panic=10
-bootdevtype=mmc
-bootdev={{ sunxi_mmc }}
-bootpart={{ sunxi_root_part }}
-prefix=/boot
-kernel={{ sunxi_kernel }}
-dtb=dtb
-overlays={{ sunxi_overlays | join(" ") }}
