@@ -3,5 +3,5 @@ jorik_ssh_pubkey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCUBx6AbKzsV/gc2q/F9c7yr
 remote_syslog_destination: 185.76.17.58
 default_packages:
 - dmidecode
-ubuntu_release: artful
+ubuntu_release: disco
 ...
