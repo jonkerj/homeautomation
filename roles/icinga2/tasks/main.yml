@@ -1,8 +1,0 @@
----
-- name: Packages
-  include_tasks: packages.yml
-- name: Remote API
-  include_tasks: remote-api.yml
-- name: Confuration
-  include_tasks: configuration.yml
-...
