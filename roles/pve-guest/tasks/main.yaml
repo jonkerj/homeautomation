@@ -1,0 +1,12 @@
+---
+- name: Install packages
+  package:
+    name: '{{ item }}'
+    state: latest
+  with_items: '{{ pve_guest_packages }}'
+- name: Enable guest agent
+  systemd:
+    name: qemu-guest-agent
+    enabled: yes
+    state: started
+...

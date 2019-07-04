@@ -12,4 +12,12 @@
     when: inventory_hostname != 'localhost'
   tags:
   - defaults
+- name: Optimize for PVE
+  hosts: vms
+  become: yes
+  gather_facts: True
+  roles:
+  - pve-guest
+  tags:
+  - pve
 ...
