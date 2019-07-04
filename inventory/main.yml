@@ -31,3 +31,13 @@ all:
       hosts:
         vanadium.thuis.efgh.nl:
         chromium.thuis.efgh.nl:
+    vms:
+      hosts:
+        argon:
+          ansible_host: 172.21.46.18
+        calcium:
+          ansible_host: 172.21.46.20
+        iron:
+          ansible_host: 172.21.46.26
+        zinc:
+          ansible_host: 172.21.46.30
