@@ -1,0 +1,6 @@
+---
+- name: Make sure default editor is vim
+  alternatives:
+    name: editor
+    path: /usr/bin/vim.basic
+...

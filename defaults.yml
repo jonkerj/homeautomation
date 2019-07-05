@@ -10,6 +10,7 @@
   - sshkeys
   - role: remote_syslog
     when: inventory_hostname != 'localhost'
+  - alternatives
   tags:
   - defaults
 - name: Optimize for PVE
