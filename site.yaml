@@ -1,0 +1,5 @@
+---
+- import_playbook: vms.yaml
+- import_playbook: devboards.yaml
+- import_playbook: thuis.yaml
+...

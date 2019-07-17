@@ -1,5 +1,0 @@
----
-- import_playbook: defaults.yml
-- import_playbook: upgrade.yml
-- import_playbook: sunxi.yml
-...

@@ -1,0 +1,8 @@
+---
+- import_tasks: aptsources.yaml
+  tags: sources
+- import_tasks: aptconf.yaml
+  tags: aptconf
+- import_tasks: alternatives.yaml
+  tags: alternatives
+...

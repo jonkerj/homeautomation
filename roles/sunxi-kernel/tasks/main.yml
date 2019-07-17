@@ -1,4 +1,0 @@
----
-- name: Kernel
-  include_tasks: kernel.yml
-...

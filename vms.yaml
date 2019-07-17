@@ -1,0 +1,10 @@
+---
+- hosts: vms
+  roles:
+  - os/debian-defaults
+  - os/upgraded
+  - os/default-packages
+  - os/remote-syslog
+  - os/sshkeys
+  - os/pve-guest
+...

@@ -1,0 +1,4 @@
+---
+- import_tasks: ser2net.yaml
+- import_tasks: gpio-reboot.yaml
+...

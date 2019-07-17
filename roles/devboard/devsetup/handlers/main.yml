@@ -1,4 +1,6 @@
 ---
 - name: reload ser2net configuration
   service: name=ser2net state=reloaded
+- name: restart sysfsutils
+  service: name=sysfsutils state=restarted
 ...

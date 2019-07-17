@@ -1,0 +1,10 @@
+---
+- hosts: devboard
+  roles:
+  - os/debian-defaults
+  - os/upgraded
+  - os/armbian
+  - os/remote-syslog
+  - os/sshkeys
+  - devboard/devsetup
+...

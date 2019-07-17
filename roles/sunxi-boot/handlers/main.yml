@@ -1,4 +1,0 @@
----
-- name: recompile uboot scripts
-  command: /usr/bin/make chdir=/boot/
-...
