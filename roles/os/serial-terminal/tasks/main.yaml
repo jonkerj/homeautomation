@@ -1,0 +1,7 @@
+---
+- name: Make sure serial-getty is enabled
+  systemd:
+    name: serial-getty@ttyS0
+    enabled: yes
+    state: started
+...

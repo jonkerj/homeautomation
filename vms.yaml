@@ -5,6 +5,7 @@
   - os/upgraded
   - os/default-packages
   - os/remote-syslog
+  - os/serial-terminal
   - os/sshkeys
   - os/pve-guest
 ...
