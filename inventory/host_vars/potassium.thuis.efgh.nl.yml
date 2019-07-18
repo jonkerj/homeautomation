@@ -1,5 +1,10 @@
 ---
 armbian_board: orangepione
+armbian_overlays:
+- uart1
+- uart2
 armbian_rootdev: /dev/mmcblk0
 armbian_rootpart: 1
+sunxi_otherhost_ttys:
+- ttyS2
 ...

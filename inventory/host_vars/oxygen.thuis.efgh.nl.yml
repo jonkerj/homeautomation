@@ -1,8 +1,10 @@
 ---
 armbian_board: orangepiplus
+armbian_overlays:
+- uart1
+- uart2
 armbian_rootdev: /dev/mmcblk1
 armbian_rootpart: 1
 sunxi_otherhost_ttys:
 - ttyS2
-- ttyUSB0
 ...
