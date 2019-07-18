@@ -1,8 +1,11 @@
 ---
 - hosts: devboard
+  become: yes
   roles:
   - os/debian-defaults
-  - os/upgraded
+  - role: os/upgraded
+    tags:
+    - upgrade
   - os/armbian
   - os/remote-syslog
   - os/sshkeys

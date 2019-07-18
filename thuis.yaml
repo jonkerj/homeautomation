@@ -1,9 +1,12 @@
 ---
 - name: Thuis
+  become: yes
   hosts: thuis
   roles:
   - os/debian-defaults
-  - os/upgraded
+  - role: os/upgraded
+    tags:
+    - upgrade
   - os/default-packages
   - os/remote-syslog
   - os/sshkeys
