@@ -1,6 +1,0 @@
----
-- hosts: spotifyd
-  become: yes
-  roles:
-  - apps/spotifyd
-...

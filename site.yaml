@@ -1,5 +1,38 @@
 ---
-- import_playbook: vms.yaml
-- import_playbook: devboards.yaml
-- import_playbook: thuis.yaml
+- name: Apply common configuration to all nodes
+  hosts: all
+  become: yes
+  roles:
+  - os/debian-defaults
+  - role: os/upgraded
+    tags:
+    - upgrade
+  - os/default-packages
+  - os/remote-syslog
+  - os/sshkeys
+
+- name: Apply specific configuration to VMs
+  hosts: vms
+  become: yes
+  roles:
+  - os/pve-guest
+  - os/serial-terminal
+
+- name: Apply ARM configuration to ARM boards
+  hosts: sunxi
+  become: yes
+  roles:
+  - os/armbian
+
+- name: Configure devboards
+  hosts: devboard
+  become: yes
+  roles:
+  - devboard/devsetup
+
+- name: Install applications
+  hosts: spotifyd
+  become: yes
+  roles:
+  - apps/spotifyd
 ...
