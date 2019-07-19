@@ -1,4 +1,5 @@
 ---
 ubuntu_release: disco
 debian_release: buster
+additional_debian_sources: []
 ...

@@ -4,4 +4,10 @@
     src: sources.list_{{ ansible_distribution }}
     dest: /etc/apt/sources.list
   when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
+- name: Setup additional sources
+  apt_repository:
+    repo: '{{ item.repo }}'
+    filename: '{{ item.name }}.list'
+    state: present
+  with_items: '{{ additional_debian_sources }}'
 ...
