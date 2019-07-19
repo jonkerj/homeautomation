@@ -2,4 +2,5 @@
 armbian_board: orangepipc
 armbian_rootdev: /dev/mmcblk0
 armbian_rootpart: 1
+spotifyd_name: Garage
 ...

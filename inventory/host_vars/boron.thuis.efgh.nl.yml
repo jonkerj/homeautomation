@@ -8,4 +8,8 @@ armbian_rootpart: 1
 armbian_user_overlays:
 - h3-si7020
 - h3-bme280
+spotifyd_name: Woonkamer
+spotifyd_device: front:CARD=DAC,DEV=0
+spotifyd_mixer: mixer
+spotifyd_volume_control: softvol
 ...

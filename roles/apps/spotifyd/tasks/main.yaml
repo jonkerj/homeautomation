@@ -1,0 +1,75 @@
+---
+- fail:
+    msg: 'Spotifyd is only available for x86_64 and armv7l, not on {{ ansible_architecture }}'
+  when:
+  - ansible_architecture != 'x86_64'
+  - ansible_architecture != 'armv7l'
+- name: Check presence of spotifyd
+  stat:
+    path: '{{ spotifyd_path }}/spotifyd'
+  register: stat
+- name: Check version of spotifyd
+  command: '{{ spotifyd_path }}/spotifyd --version'
+  register: version
+  changed_when: false
+  when: stat.stat.exists
+- name: Download, unpack and install spotifyd
+  when:
+  - stat.stat.exists == False or version.stdout != spotifyd_version_string
+  block:
+  - name: Make sure unzip is present
+    package:
+      name: unzip
+      state: present
+  - name: Create temporary dir
+    tempfile:
+      state: directory
+    register: tempdir
+  - name: Download release archive (x86_64)
+    get_url:
+      url: '{{ spotifyd_release_x86_64 }}'
+      dest: '{{ tempdir.path }}/release.zip'
+    when: ansible_architecture == 'x86_64'
+  - name: Download release archive (ARM)
+    get_url:
+      url: '{{ spotifyd_release_arm }}'
+      dest: '{{ tempdir.path }}/release.zip'
+    when: ansible_architecture == 'armv7l'
+  - name: Unzip release
+    unarchive:
+      src: '{{ tempdir.path }}/release.zip'
+      dest: '{{ tempdir.path }}'
+      remote_src: true
+  - name: Install
+    copy:
+      src: '{{ tempdir.path }}/spotifyd'
+      dest: '{{ spotifyd_path }}/spotifyd'
+      remote_src: true
+  always:
+  - name: Clean up temporary dir
+    file:
+      state: absent
+      path: '{{ tempdir.path }}'
+    when: tempdir is defined
+- name: Ensure right file permissions
+  file:
+    path: '{{ spotifyd_path }}/spotifyd'
+    mode: 0755
+    owner: root
+    group: root
+- name: Template systemd unit file
+  template:
+    src: spotifyd.service
+    dest: /etc/systemd/system/spotifyd.service
+  notify: Reload systemd
+- name: Template config file
+  template:
+    src: spotifyd.conf
+    dest: /etc/spotifyd.conf
+  notify: Restart spotifyd
+- name: Start spotifyd
+  systemd:
+    name: spotifyd
+    enabled: yes
+    state: started
+...

@@ -1,0 +1,9 @@
+---
+- name: Reload systemd
+  systemd:
+    daemon_reload: yes
+- name: Restart spotifyd
+  systemd:
+    name: spotifyd
+    state: restarted
+...
