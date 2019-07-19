@@ -1,5 +1,5 @@
 localhost
-pve ansible_host=172.21.46.2
+pve
 carbon.efgh.nl
 
 [thuis]

@@ -1,6 +1,4 @@
 ---
-#ipv4_address: 172.21.46.2
-#ipv6_address: 2001:1540:802:6:21e:67ff:fe4f:4f8b
 additional_disks:
 - path: /ssd
   critical: 10%
