@@ -1,6 +1,7 @@
 ---
 - name: Setup main sources.list
   template:
-    src: sources.list
+    src: sources.list_{{ ansible_distribution }}
     dest: /etc/apt/sources.list
+  when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
 ...

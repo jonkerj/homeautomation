@@ -1,6 +1,4 @@
 ---
-aptsources_main_mirror: http://nl.archive.ubuntu.com/ubuntu/
-aptsources_security_mirror: http://security.ubuntu.com/ubuntu/
-aptsources_partner_mirror: http://archive.canonical.com/ubuntu/
-aptsources_include_src: no
+ubuntu_release: disco
+debian_release: buster
 ...

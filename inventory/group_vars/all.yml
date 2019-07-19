@@ -4,5 +4,4 @@ remote_syslog_destination: 185.76.17.58
 default_packages:
 - dmidecode
 - vim
-ubuntu_release: disco
 ...
