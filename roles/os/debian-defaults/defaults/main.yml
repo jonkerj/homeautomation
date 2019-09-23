@@ -1,5 +1,8 @@
 ---
+ubuntu_mirror: http://nl.archive.ubuntu.com/ubuntu/
 ubuntu_release: disco
+debian_mirror: http://ftp.nl.debian.org/debian/
 debian_release: buster
+debian_security_mirror: http://ftp.nl.debian.org/debian-security/
 additional_debian_sources: []
 ...

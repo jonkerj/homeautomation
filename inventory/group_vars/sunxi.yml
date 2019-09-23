@@ -1,9 +1,8 @@
 ---
-aptsources_main_mirror: http://nl.ports.ubuntu.com/
-aptsources_security_mirror: http://nl.ports.ubuntu.com/
 armbian_family: sunxi
 armbian_overlays: []
 armbian_release: bionic
 armbian_target: next
 armbian_user_overlays: []
+ubuntu_mirror: http://ports.ubuntu.com/
 ...

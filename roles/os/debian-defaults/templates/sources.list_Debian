@@ -1,3 +1,3 @@
 # {{ ansible_managed }}
-deb http://ftp.nl.debian.org/debian {{ debian_release }} main contrib
-deb http://ftp.nl.debian.org/debian-security {{ debian_release }}/updates main contrib
+deb {{ debian_mirror }} {{ debian_release }} main contrib
+deb {{ debian_security_mirror }} {{ debian_release }}/updates main contrib
