@@ -40,11 +40,16 @@
       src: '{{ tempdir.path }}/release.zip'
       dest: '{{ tempdir.path }}'
       remote_src: true
+  - name: Make sure old version is gone
+    file:
+      path: '{{ spotifyd_path }}/spotifyd'
+      state: absent
   - name: Install
     copy:
       src: '{{ tempdir.path }}/spotifyd'
       dest: '{{ spotifyd_path }}/spotifyd'
       remote_src: true
+      force: yes
   always:
   - name: Clean up temporary dir
     file:
