@@ -28,16 +28,16 @@
   - name: Download release archive (x86_64)
     get_url:
       url: '{{ spotifyd_release_x86_64 }}'
-      dest: '{{ tempdir.path }}/release.zip'
+      dest: '{{ tempdir.path }}/release.tar.gz'
     when: ansible_architecture == 'x86_64'
   - name: Download release archive (ARM)
     get_url:
       url: '{{ spotifyd_release_arm }}'
-      dest: '{{ tempdir.path }}/release.zip'
+      dest: '{{ tempdir.path }}/release.tar.gz'
     when: ansible_architecture == 'armv7l'
   - name: Unzip release
     unarchive:
-      src: '{{ tempdir.path }}/release.zip'
+      src: '{{ tempdir.path }}/release.tar.gz'
       dest: '{{ tempdir.path }}'
       remote_src: true
   - name: Make sure old version is gone
