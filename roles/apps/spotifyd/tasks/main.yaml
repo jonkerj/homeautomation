@@ -50,6 +50,7 @@
       dest: '{{ spotifyd_path }}/spotifyd'
       remote_src: true
       force: yes
+    notify: Restart spotifyd
   always:
   - name: Clean up temporary dir
     file:
