@@ -1,7 +1,8 @@
 ---
 spotifyd_path: /usr/local/bin
-spotifyd_version: 0.2.16
+spotifyd_version: 0.2.17
+spotifyd_version_date: 2019-09-29
 spotifyd_version_string: 'spotifyd {{ spotifyd_version }}'
 spotifyd_release_x86_64: 'https://github.com/Spotifyd/spotifyd/releases/download/v{{ spotifyd_version }}/spotifyd-linux-slim.tar.gz'
-spotifyd_release_arm: 'https://github.com/Spotifyd/spotifyd/releases/download/v{{ spotifyd_version }}/spotifyd-2019-09-26-armv6-slim.zip'
+spotifyd_release_arm: 'https://github.com/Spotifyd/spotifyd/releases/download/v{{ spotifyd_version }}/spotifyd-{{ spotifyd_version_date }}-armv6-slim.zip'
 ...
