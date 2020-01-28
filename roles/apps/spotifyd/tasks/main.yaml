@@ -17,10 +17,6 @@
   when:
   - stat.stat.exists == False or version.stdout != spotifyd_version_string
   block:
-  - name: Make sure unzip is present
-    package:
-      name: unzip
-      state: present
   - name: Create temporary dir
     tempfile:
       state: directory
@@ -35,7 +31,7 @@
       url: '{{ spotifyd_release_arm }}'
       dest: '{{ tempdir.path }}/release.tar.gz'
     when: ansible_architecture == 'armv7l'
-  - name: Unzip release
+  - name: Unpack release
     unarchive:
       src: '{{ tempdir.path }}/release.tar.gz'
       dest: '{{ tempdir.path }}'
