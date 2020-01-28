@@ -1,0 +1,69 @@
+---
+- name: Ensure SNT repo is present
+  apt_repository:
+    repo: "deb [trusted=yes] https://home.snt.utwente.nl/syscom/debian/ stable snt"
+    state: present
+    filename: snt.list
+- name: Preseed debconf to not use debconf
+  debconf:
+    name: "snt-backup"
+    question: "snt-backup/use_debconf"
+    value: "false"
+    vtype: "boolean"
+- name: Make sure base package is there
+  package:
+    name: snt-backup
+    state: present
+- name: Template out main config
+  template: 
+    src: config
+    dest: /etc/snt-backup/config
+- name: Write SSH identity
+  copy: 
+    dest: /etc/snt-backup/id_dsa
+    content: '{{ snt_backup_identity }}'
+    owner: root
+    group: root
+    mode: 0600
+- name: Make sure SSH dir exists
+  file:
+    path: /root/.ssh
+    state: directory
+    mode: 0775
+- name: Make sure SNT is in known_hosts
+  known_hosts:
+    path: /root/.ssh/known_hosts
+    name: '{{ item }}'
+    key: '{{ item }} {{ snt_backup_known_host }}'
+    hash_host: yes
+  with_items: '{{ snt_backup_names }}'
+- when: '"files" in snt_backup_plugins'
+  block:
+  - name: Install files plugin
+    package:
+      name: snt-backup-files
+      state: present
+  - name: Configure DIRS
+    template:
+      src: DIRS
+      dest: /etc/snt-backup/files/DIRS
+  - name: Configure excludes
+    template:
+      src: exclude
+      dest: /etc/snt-backup/files/exclude.d/efgh-{{ item.path.replace('/', '') }}
+    with_items: '{{ snt_backup_plugins.files }}'
+    when: item.excludes is defined
+- when: '"debian" in snt_backup_plugins'
+  block:
+  - name: Install debian plugin
+    package:
+      name: snt-backup-debian
+      state: present
+  - name: Render configfiles
+    template:
+      src: '{{ item }}'
+      dest: '/etc/snt-backup/debian/{{ item }}'
+    with_items:
+    - pkglist.conf
+    - debconf.conf
+...

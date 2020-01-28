@@ -3,5 +3,13 @@ additional_disks:
 - path: /home
   critical: 10%
   warning: 20%
+snt_backup_plugins:
+  files:
+  - path: /home/jorik
+    excludes:
+    - nobackup
+    - no-backup
+  - path: /home/marianne/Documents
+  debian: ~
 spotifyd_name: Zolder
 ...

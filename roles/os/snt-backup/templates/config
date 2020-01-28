@@ -1,0 +1,12 @@
+# {{ ansible_managed }}
+export IDENTITY='/etc/snt-backup/id_dsa'
+export SNAPSHOTDIR='/var/cache/snt-backup'
+export BACKUPFILE='dirs'
+export DATEFIX="`date +%Y-%m-%d_%H-%M-%S`"
+export TODIR='{{ snt_backup_remote_user }}@{{ snt_backup_remote_host }}:/'
+export HOSTNAME_TAG='{{ ansible_hostname }}'
+export LOAD_PLUGINS='{{ " ".join(snt_backup_plugins.keys()) }}'
+export COMPRESS='| /usr/bin/xz'
+export C_TAG='.xz'
+export XZ_OPT=' --memlimit=25% '
+export DAY_WEEKLY_CLEANUP='monday'

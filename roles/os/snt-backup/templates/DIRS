@@ -1,0 +1,3 @@
+{% for item in snt_backup_plugins.files %}
+{{ item.path }}
+{% endfor %}

@@ -1,0 +1,7 @@
+---
+- name: SNT-Backup
+  hosts: snt-backup
+  become: yes
+  roles:
+  - os/snt-backup
+...

@@ -27,7 +27,7 @@ oxygen.thuis.efgh.nl
 potassium.thuis.efgh.nl
 
 [vms]
-argon.efgh.nl
+#argon.efgh.nl
 iron.efgh.nl
 zinc.efgh.nl
 calcium.efgh.nl
@@ -36,3 +36,6 @@ calcium.efgh.nl
 neon.thuis.efgh.nl
 boron.thuis.efgh.nl
 sulfur.thuis.efgh.nl
+
+[snt-backup]
+neon.thuis.efgh.nl
