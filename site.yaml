@@ -23,6 +23,7 @@
   become: yes
   roles:
   - os/armbian
+  - apps/iiod
 
 - name: Configure devboards
   hosts: devboard

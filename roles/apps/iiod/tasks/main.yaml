@@ -1,0 +1,11 @@
+---
+- name: Install iiod
+  package:
+    name: iiod
+    state: installed
+- name: Enable and start iiod
+  systemd:
+    name: iiod
+    state: started
+    enabled: true
+...
